@@ -6,7 +6,7 @@ const fs = require('fs');
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-## Description ${data.description}
+## Project Description ${data.description}
 ## Created by ${data.name}
 ## Table of Contents
 [Text](#Section)
@@ -15,9 +15,9 @@ function generateMarkdown(data) {
 ## Installation ${data.installation}
 ## Usage ${data.usage}
 ## Additional Contributors ${data.contributors}
-## Future Contributions ${data.future-contributions}
+## Future Contributions ${data.future}
 ## Tests ${data.test}
-## Licenses ![GitHub license](https://img.shields.io/badge/license-${license}-blue.svg)
+## Licenses ![GitHub license](https://img.shields.io/badge/license-${data.license}-blue.svg)
 ## Questions
 See ${data.name}'s other projects at https://github.com/${data.username}
 Please contact ${data.name} with any questions at ${data.email}

@@ -1,8 +1,8 @@
 // Const
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js");
-const { resolve } = require('path');
 
 // array of questions for user
 const questions = [
@@ -84,7 +84,7 @@ const questions = [
     },
     {
         type: "input",
-        name: "future-contributions",
+        name: "future",
         message: "Please include guidelines for future contributors to follow. (Optional)",
     },
     {
@@ -95,7 +95,7 @@ const questions = [
     {
         type: "checkbox",
         name: "license",
-        message: "Please check any licenses you wish to include in your ReadMe file. (Optional)",
+        message: "Please check any licenses you wish to include in your ReadMe file. *You may only select one.* (Optional)",
         choices: ['Apache', 'Boost', 'BSD', 'Creative Commons', 'Eclipse', 'GNU', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Open Data Commons', 'Perl', 'SIL', 'Unlicense', 'WTFPL', 'Zlib']
     },
     {
@@ -128,26 +128,28 @@ const questions = [
 
 // function to write README file
 const writeToFile = (fileName, data) => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile('./generated-readme/README.md', fileContent, err => {
-        if (err) {
-          reject(err);
-          return;
-        }
-        resolve({
-          ok: true,
-          message: 'README file created!'
-        });
-      });
-    });
-  };
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+};
+//     return new Promise((resolve, reject) => {
+//       fs.writeFile('./generated-readme/README.md', data, err => {
+//         if (err) {
+//           reject(err);
+//           return;
+//         }
+//         resolve({
+//           ok: true,
+//           message: 'README file created!'
+//         });
+//       });
+//     });
+//   };
 
 // function to initialize program
 function init() {
     inquirer.prompt(questions)
     .then(answers => {
         console.log(answers);
-        writeToFile("./generated-readme/README.md", generateMarkdown({...answers})
+        writeToFile('./generated-readme/README.md', generateMarkdown({...answers})
     )});
 };
 
