@@ -80,22 +80,25 @@ const questions = [
         type: "input",
         name: "contributors",
         message: "Please list the names of any additional project contributors. (Optional)",
+        default: "N/A"
     },
     {
         type: "input",
         name: "future",
         message: "Please include guidelines for future contributors to follow. (Optional)",
+        default: "Please reach out via email if you wish to contribute to this project."
     },
     {
         type: "input",
         name: "test",
-        message: "Please include any tests for your application and examples on how to run them. (Optional)"
+        message: "Please include any tests for your application and examples on how to run them. (Optional)",
+        default: "To be determined."
     },
     {
         type: "list",
         name: "license",
-        message: "If you would like to add a license to your README, please select one from the list below. (Optional)",
-        choices: ['Apache', 'Boost', 'BSD', 'Creative Commons', 'Eclipse', 'GNU', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Open Data Commons', 'Perl', 'SIL', 'Unlicense', 'WTFPL', 'Zlib']
+        message: "Please select a license from the list below. (Optional)",
+        choices: ['Apache', 'Boost', 'BSD', 'CreativeCommons', 'Eclipse', 'GNU', 'IBM', 'ISC', 'MIT', 'Mozilla', 'OpenDataCommons', 'Perl', 'SIL', 'Unlicense', 'WTFPL', 'Zlib']
     },
     {
         type: "input",
