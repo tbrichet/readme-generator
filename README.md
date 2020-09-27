@@ -8,7 +8,7 @@ Tara Brichetto
 26 September 2020
 
 ## Purpose
-This application generates a README file using user input from th
+This application generates a README.md file using user input from the terminal based on a series of prompts. Users can use this application to quickly create a professional README for a new project. 
 
 ## Project Requirements
 * Create a command-line application that accepts user input <br>
