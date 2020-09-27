@@ -26,7 +26,7 @@ This application generates a README.md file using user input from the terminal b
 *Markdown <br>
 
 ## Links
-GitHub Repository | https://github.com/tbrichet/readme-generator
+GitHub Repository | https://github.com/tbrichet/readme-generator <br>
 Screencastify Demo | https://drive.google.com/file/d/1hikk8syRH7Sw28dCB4xSsyLtAqTgQQMA/view
 
 ## Contributions
