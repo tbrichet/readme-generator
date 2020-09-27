@@ -1,6 +1,5 @@
-// Const
+// Variables
 const fs = require('fs');
-const path = require('path');
 const inquirer = require('inquirer');
 const generateMarkdown = require("./utils/generateMarkdown.js");
 
@@ -93,9 +92,9 @@ const questions = [
         message: "Please include any tests for your application and examples on how to run them. (Optional)"
     },
     {
-        type: "checkbox",
+        type: "list",
         name: "license",
-        message: "Please check any licenses you wish to include in your ReadMe file. *You may only select one.* (Optional)",
+        message: "If you would like to add a license to your README, please select one from the list below. (Optional)",
         choices: ['Apache', 'Boost', 'BSD', 'Creative Commons', 'Eclipse', 'GNU', 'IBM', 'ISC', 'MIT', 'Mozilla', 'Open Data Commons', 'Perl', 'SIL', 'Unlicense', 'WTFPL', 'Zlib']
     },
     {
@@ -128,21 +127,11 @@ const questions = [
 
 // function to write README file
 const writeToFile = (fileName, data) => {
-    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+    fs.writeFile(fileName, data, err => {
+        if (err) throw new Error(err);
+        console.log('README file created!');
+    });
 };
-//     return new Promise((resolve, reject) => {
-//       fs.writeFile('./generated-readme/README.md', data, err => {
-//         if (err) {
-//           reject(err);
-//           return;
-//         }
-//         resolve({
-//           ok: true,
-//           message: 'README file created!'
-//         });
-//       });
-//     });
-//   };
 
 // function to initialize program
 function init() {
